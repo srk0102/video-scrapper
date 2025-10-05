@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: video-scraper
+  labels:
+    app: video-scraper
+spec:
+  type: ClusterIP
+  selector:
+    app: video-scraper
+  ports:
+    - name: http
+      protocol: TCP
+      port: 80          # the port other services will talk to
+      targetPort: 8080  # the port your container is listening on
